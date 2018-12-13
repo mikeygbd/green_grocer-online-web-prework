@@ -1,5 +1,18 @@
 def consolidate_cart(cart)
   # code here
+  new_cart = {}
+  
+  cart.each do |items|
+    items.each do |item, data|
+    if !new_cart.has_key?(item)
+      new_cart[item]=data
+      new_cart[item][:count] = 1
+    else
+      new_cart[item][:count] += 1
+    end
+    end
+  end
+  new_cart
 end
 
 def apply_coupons(cart, coupons)
